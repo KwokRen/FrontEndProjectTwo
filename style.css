@@ -14,8 +14,3 @@ h1 {
     font-family: 'Bebas Neue', cursive;
     font-size: 60px;
 }
-
-h1:hover {
-    color: rgb(149, 217, 238);
-    transition: all 1s ease-in-out;
-}
