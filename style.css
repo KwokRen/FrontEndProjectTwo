@@ -1,10 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 body {
     scroll-behavior: smooth;
     background-color: black;
 }
 
 h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 300px;
+    align-items: center;
     color: white;
-    transition: all 1s ease-in-out
+    font-family: 'Bebas Neue', cursive;
+    font-size: 60px;
 }
 
+h1:hover {
+    color: rgb(149, 217, 238);
+    transition: all 1s ease-in-out;
+}
