@@ -1,0 +1,10 @@
+body {
+    scroll-behavior: smooth;
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    transition: all 1s ease-in-out
+}
+
