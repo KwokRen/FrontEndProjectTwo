@@ -9,7 +9,6 @@ body {
 h1 {
     display: flex;
     justify-content: center;
-    margin-top: 250px;
     align-items: center;
     color: white;
     font-family: 'Bebas Neue', cursive;
@@ -62,7 +61,10 @@ h1 {
 }
 
 .banner {
-    height: 400px;
+    display: flex;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
 }
 
 .breakpoint, .footer {
@@ -70,6 +72,6 @@ h1 {
 }
 
 .exercise, .foodtracker {
-    height: 700px;
+    height: 610px;
     background-color: white;
 }

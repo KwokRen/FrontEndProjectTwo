@@ -9,7 +9,9 @@ const getAll = async () => {
     // fetch data from the database and return a promise
     const response = await fetch(`${URL}/fitness`);
     const data = await response.json()
-    console.log(data);
+    data.forEach((exercise) => {
+
+    })
 }
 
 getAll()
@@ -18,14 +20,14 @@ getAll()
 
 
 
-// let $hello = $('.hello')
+let $hello = $('.hello')
 
-// $hello.hover (function () {
-//     $hello.css('color', "black");
-//     $hello.css('transition', "all 3s ease-in-out")
-// },
-//     function () {
-//     $hello.css('color', "white");
-//     $hello.css('transition', "all 3s ease-in-out");
-// })
+$hello.hover (function () {
+    $hello.css('color', "black");
+    $hello.css('transition', "all 3s ease-in-out")
+},
+    function () {
+    $hello.css('color', "white");
+    $hello.css('transition', "all 3s ease-in-out");
+})
 
