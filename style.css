@@ -77,8 +77,12 @@ body {
     justify-content: center;
 }
 
-.breakpoint, .footer {
+.breakpoint {
     height: 100px;
+}
+
+.footer {
+    height: 90px;
 }
 
 .exercise, .foodtracker {
@@ -124,5 +128,18 @@ body {
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr;
     grid-template-rows: 1fr;
+}
+
+.breakfastHeading, .lunchHeading, .dinnerHeading {
+    display: flex;
+    font-size: 40px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.breakfast, .lunch, .dinner {
+    border-right: 1px solid black;
 }
 
