@@ -6,7 +6,7 @@ body {
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(68,68,68,1) 50%, rgba(0,0,0,1) 100%);
 }
 
-h1 {
+.banner > h1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,4 +74,23 @@ h1 {
 .exercise, .foodtracker {
     height: 610px;
     background-color: white;
+}
+
+.exercise {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+}
+
+#datesForExercise {
+    background-color: black;
+}
+
+.dateDiv {
+    color: white;
+    height: 102px;
+}
+
+#showOneExercise {
+    display: flex;
 }
