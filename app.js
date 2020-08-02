@@ -8,7 +8,7 @@ const URL = deployedURL ? deployedURL : "http://localhost:3000"
 const getAll = async () => {
     // fetch data from the database and return a promise
     const response = await fetch(`${URL}/fitness`);
-    const data = await response.json()
+    const data = await response.text()
     console.log(data);
 }
 
