@@ -103,10 +103,12 @@ body {
 
 .datesForExercise {
     background-color: black;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .datesForFood {
     background-color: black;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .dateDiv, .dateDivTwo, .createExercise {
@@ -124,6 +126,15 @@ body {
     justify-content: space-around;
 }
 
+.routineHeadings {
+    border-bottom: 1px solid black;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.difficulty, .sets, .reps {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .foodtracker {
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr;
@@ -137,9 +148,11 @@ body {
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid black;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .breakfast, .lunch, .dinner {
     border-right: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
 }
 

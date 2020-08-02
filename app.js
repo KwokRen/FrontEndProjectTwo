@@ -63,11 +63,11 @@ const displayExercise = async () => {
     $('#showOneExercise').empty()
     data.exercises.forEach((exercise) => {
         const $exerciseDiv = $('<div>').attr({'id': exercise._id, 'class': 'exerciseDiv'});
-        const $routineHeading = $('<h4>').text(`${exercise.routine}`);
-        const $difficulty = $('<h6>').text(`${exercise.difficulty}`);
-        const $sets = $('<h6>').text(`${exercise.sets}`);
-        const $reps = $('<h6>').text(`${exercise.reps}`);
-        const $directionButton = $('<button>').text(`Directions`);
+        const $routineHeading = $('<h4>').text(`${exercise.routine}`).attr('class', 'routineHeadings');
+        const $difficulty = $('<h6>').text(`${exercise.difficulty}`).attr('class', 'difficulty');
+        const $sets = $('<h6>').text(`${exercise.sets}`).attr('class', 'sets');
+        const $reps = $('<h6>').text(`${exercise.reps}`).attr('class', 'reps');
+        const $directionButton = $('<button>').text(`Directions`).attr('class','directionButton');
         console.log(exercise.directionVideo);
         const $directions = $('<a>').attr({'href': exercise.directionVideo, 'target': '_blank'});
         $directions.append($directionButton);
