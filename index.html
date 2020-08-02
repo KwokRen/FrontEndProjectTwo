@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" defer></script>
@@ -11,6 +12,52 @@
     <link rel= "stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="hello">FitTrack Coming Soon...</h1>
+    <nav class="navbartop">
+        <!-- The div container that contains my icon within the navigation bar. -->
+        <div class="icon">
+            <!-- Linking back to the homepage. -->
+            <a href="index.html">
+                <!-- The link that produces the image that has my icon. -->
+                <img src="https://res.cloudinary.com/dpggcudix/image/upload/v1596334202/Screen_Shot_2020-08-01_at_10.09.34_PM_g8naj2.png" class="iconpic">
+            </a>
+        </div>
+        <!-- The right part of my navigation bar. -->
+        <div class="rightsidetop">
+            <!-- My hamburger div that appears only when width is less than 600px. -->
+            <div class="hamburgerdiv">
+                <a class="hamburger" href="#"></a>
+            </div>
+            <!-- The right side div container that holds all the different links together that appears when width is more than or equal to 600px. -->
+            <div class="rightside">
+                <!-- I put the a tags around the div container so that the whole div will become the link instead of just the word. -->
+                <!-- Each of these links go to different webpages in the same folder except for the last one. -->
+                <a href="../aboutPage/about.html" id="desktopshowhoverA"><div class="desktopshowA">Exercise</div></a>
+                <a href="../projectPage/projects.html" id="desktopshowhoverB"><div class="desktopshowB">Food</div></a>
+                <a href="#contacts" id="desktopshowhoverC"><div class="desktopshowC">Contact</div></a>
+            </div>
+        <div>
+    </nav>
+    <!-- This is the container that the hamburger menu displays. Before the hamburger menu is clicked, it is not displaying. -->
+    <div class="hamburgermenu">
+        <!-- The class hidden is given to them because they are hidden and will only appear when they are given the class shown (which is on line 1 of the JavaScript file). -->
+        <a href="../aboutPage/about.html"><div class="hidden">About</div></a>
+        <a href="../projectPage/projects.html"><div class="hidden">Projects</div></a>
+        <a href="#contacts"><div class="hidden">Contact</div></a>
+    </div>
+    <div class="banner">
+        <h1 class="hello">FitTrack Coming Soon...</h1>
+    </div>
+    <div class="exercise">
+
+    </div>
+    <div class="breakpoint">
+
+    </div>
+    <div class="foodtracker">
+
+    </div>
+    <div class="footer">
+
+    </div>
 </body>
 </html>

@@ -1,16 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap');
 
 body {
     scroll-behavior: smooth;
-    background-color: black;
+    background-color: white;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(68,68,68,1) 50%, rgba(0,0,0,1) 100%);
 }
 
 h1 {
     display: flex;
     justify-content: center;
-    margin-top: 300px;
+    margin-top: 250px;
     align-items: center;
     color: white;
     font-family: 'Bebas Neue', cursive;
     font-size: 60px;
+}
+
+.navbartop {
+    display: flex;
+    height: 90px;
+    justify-content: space-between;
+    color: white;
+    background-image: linear-gradient(white, white);
+    border-bottom: 1px solid black;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    background-color: black;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.iconpic {
+    height: 70px;
+    width: 70px;
+    margin: 20px;
+}
+
+.rightsidetop {
+    display: flex;
+    padding-right: 75px;
+}
+
+.rightside {
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none;
+}
+
+.rightside > a {
+    color: black;
+    text-decoration: none;
+}
+
+.banner {
+    height: 400px;
+}
+
+.breakpoint, .footer {
+    height: 100px;
+}
+
+.exercise, .foodtracker {
+    height: 700px;
+    background-color: white;
 }

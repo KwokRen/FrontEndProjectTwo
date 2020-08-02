@@ -1,12 +1,31 @@
-let $hello = $('.hello')
+// where the netlify website will be
+const deployedURL = null;
+// developmental purposes will use local host
+const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
-$hello.hover (function () {
-    $hello.css('color', "rgb(149, 217, 238)");
-    $hello.css('transition', "all 1s ease-in-out")
-},
-    function () {
-    $hello.css('color', "white");
-    $hello.css('transition', "all 1s ease-in-out");
-})
+///////// DISPLAY ALL /////////
 
+const getAll = async () => {
+    // fetch data from the database and return a promise
+    const response = await fetch(`${URL}/fitness`);
+    const data = await response.json()
+    console.log(data);
+}
+
+getAll()
+
+
+
+
+
+// let $hello = $('.hello')
+
+// $hello.hover (function () {
+//     $hello.css('color', "black");
+//     $hello.css('transition', "all 3s ease-in-out")
+// },
+//     function () {
+//     $hello.css('color', "white");
+//     $hello.css('transition', "all 3s ease-in-out");
+// })
 
