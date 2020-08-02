@@ -15,11 +15,17 @@ const getAll = async () => {
         $('.datesForExercise').append($dateDiv);
     })
     const $editButton = $('<button>').attr({'class': "waves-effect waves-light btn modal-trigger editButton", 'data-target': "modal1"}).text('Edit').on('click', (event) => {
-        $('.modal').modal('show')
-    })
-    //const $editButton = $('<button>').attr('class', 'editButton').text('Edit')
+        $('#edit-modal').modal();
+    });
     $('.datesForExercise').append($editButton);
 }
+
+$("#submit-edit").on('click', (event) => {
+    $('.modal').modal('hide');
+})
+
+
+
 // populating values to the edit div 
 const editExercise = async () => {
     const response = await fetch(`${URL}/fitness/${event.target.id}`);
@@ -63,10 +69,18 @@ const getAllFood = async () => {
     const data = await response.json()
     console.log(data);
     data.forEach((food) => {
-    const $dateDivTwo = $('<div>').attr({'id': food._id, 'class': 'dateDivTwo'}).text(`Day: ${food.dayNumber}`).on('click', displayFood);
-    $('.datesForFood').append($dateDivTwo);
+        const $dateDivTwo = $('<div>').attr({'id': food._id, 'class': 'dateDivTwo'}).text(`Day: ${food.dayNumber}`).on('click', displayFood);
+        $('.datesForFood').append($dateDivTwo);
     })
+    const $editFoodButton = $('<button>').attr({'class': "waves-effect waves-light btn modal-trigger editButton"}).text('Edit').on('click', (event) => {
+        $('#editFood-modal').modal();
+    })
+    $('.datesForFood').append($editFoodButton);
 }
+
+$("#submit-foodEdit").on('click', (event) => {
+    $('.modal').modal('hide');
+})
 // displays the food
 const displayFood = async () => {
     const response = await fetch(`${URL}/fitness/food/${event.target.id}`);
@@ -122,26 +136,7 @@ const displayExercise = async () => {
     })
 }
 
-// $(document).ready(function(){
-//     $('.modal').modal();
-//   });
-
 getAll()
 
 getAllFood()
-
-
-
-
-
-// let $hello = $('.hello')
-
-// $hello.hover (function () {
-//     $hello.css('color', "black");
-//     $hello.css('transition', "all 3s ease-in-out")
-// },
-//     function () {
-//     $hello.css('color', "white");
-//     $hello.css('transition', "all 3s ease-in-out");
-// })
 
