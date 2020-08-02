@@ -88,19 +88,41 @@ body {
 
 .exercise {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr;
 }
 
-/* #datesForExercise {
-    background-color: black;
-} */
+.exerciseContainer {
+    display: flex;
+    justify-content: space-around;
+}
 
-.dateDiv {
+.datesForExercise {
+    background-color: black;
+}
+
+.datesForFood {
+    background-color: black;
+}
+
+.dateDiv, .dateDivTwo, .createExercise {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    height: 102px;
+    height: 100px;
 }
 
 #showOneExercise {
     display: flex;
+    text-align: center;
+    align-self: flex-start;
+    justify-content: space-around;
 }
+
+.foodtracker {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr;
+}
+
