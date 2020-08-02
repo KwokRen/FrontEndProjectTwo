@@ -2,9 +2,9 @@
 
 body {
     scroll-behavior: smooth;
-    background-color: white;
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(68,68,68,1) 50%, rgba(0,0,0,1) 100%);
 }
+
 
 .banner > h1 {
     display: flex;
@@ -13,6 +13,16 @@ body {
     color: white;
     font-family: 'Bebas Neue', cursive;
     font-size: 60px;
+    animation-name: namechange;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    transition: all 10s ease-in-out;
+}
+
+@keyframes namechange {
+    0% {color: black}
+    50% {color: white}
+    100% {color: black}
 }
 
 .navbartop {
@@ -82,9 +92,9 @@ body {
     grid-template-rows: 1fr;
 }
 
-#datesForExercise {
+/* #datesForExercise {
     background-color: black;
-}
+} */
 
 .dateDiv {
     color: white;

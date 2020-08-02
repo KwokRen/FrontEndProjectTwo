@@ -47,14 +47,14 @@
 
 
 
-let $hello = $('.hello')
+// let $hello = $('.hello')
 
-$hello.hover (function () {
-    $hello.css('color', "black");
-    $hello.css('transition', "all 3s ease-in-out")
-},
-    function () {
-    $hello.css('color', "white");
-    $hello.css('transition', "all 3s ease-in-out");
-})
+// $hello.hover (function () {
+//     $hello.css('color', "black");
+//     $hello.css('transition', "all 3s ease-in-out")
+// },
+//     function () {
+//     $hello.css('color', "white");
+//     $hello.css('transition', "all 3s ease-in-out");
+// })
 
