@@ -8,7 +8,6 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitTrack</title>
@@ -54,7 +53,7 @@
     <div class="breakpoint"></div>
     <div class="exercise">
         <div class="datesForExercise">
-            <div class="createExercise">Create A Day!</div>
+            <button class="createExercise">Create A Day!</button>
         </div>
             <div id="showOneExercise"></div>
     </div>
@@ -75,5 +74,117 @@
         </div>
     </div>
     <div class="footer"></div>
+    <div class="modal" id="edit-modal">
+        <div class="modal-content">
+            <h2>Edit Your Day</h2>
+            <div class="edit-exercise">
+                <div class="input-field">
+                    <input id="routine-editOne" type="text" class="validate">
+                    <label for="routine-editOne">Routine #1</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="difficulty-editOne" type="text" class="validate">
+                        <label for="difficulty-editOne">Difficulty</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="sets-editOne" type="number" class="validate">
+                        <label for="sets-editOne">Sets</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="reps-editOne" type="number" class="validate">
+                        <label for="reps-editOne">Reps</label>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <input id="directions-editOne" type="text" class="validate">
+                    <label for="directions-editOne">Directions URL (video or instructions)</label>
+                </div>
+                <div class="input-field">
+                    <input id="routine-editTwo" type="text" class="validate">
+                    <label for="routine-editTwo">Routine #2</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="difficulty-editTwo" type="text" class="validate">
+                        <label for="difficulty-editTwo">Difficulty</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="sets-editTwo" type="number" class="validate">
+                        <label for="sets-editTwo">Sets</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="reps-editTwo" type="number" class="validate">
+                        <label for="reps-editTwo">Reps</label>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <input id="directions-editTwo" type="text" class="validate">
+                    <label for="directions-editTwo">Directions URL (video or instructions)</label>
+                </div>
+                <div class="input-field">   
+                    <input id="routine-editThree" type="text" class="validate">
+                    <label for="routine-editThree">Routine #3</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="difficulty-editThree" type="text" class="validate">
+                        <label for="difficulty-editThree">Difficulty</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="sets-editThree" type="number" class="validate">
+                        <label for="sets-editThree">Sets</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="reps-editThree" type="number" class="validate">
+                        <label for="reps-editThree">Reps</label>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <input id="directions-editThree" type="text" class="validate">
+                    <label for="directions-editThree">Directions URL (video or instructions)</label>
+                </div>
+            </div>
+            <!-- <div class="edit-food">
+                <div class="input-field">
+                    <input id="breakfastOne-edit" type="text" class="validate">
+                    <label for="breakfastOne-edit">Breakfast Meal #1</label>
+                </div>
+                <div class="input-field">
+                    <input id="breakfastTwo-edit" type="text" class="validate">
+                    <label for="breakfastTwo-edit">Breakfast Meal #2</label>
+                </div>
+                <div class="input-field">
+                    <input id="breakfastThree-edit" type="text" class="validate">
+                    <label for="breakfastThree-edit">Breakfast Meal #3</label>
+                </div>
+                <div class="input-field">
+                    <input id="lunchOne-edit" type="text" class="validate">
+                    <label for="lunchOne-edit">Lunch Meal #1</label>
+                </div>
+                <div class="input-field">
+                    <input id="lunchTwo-edit" type="text" class="validate">
+                    <label for="lunchTwo-edit">Lunch Meal #2</label>
+                </div>
+                <div class="input-field">
+                    <input id="lunchThree-edit" type="text" class="validate">
+                    <label for="lunchThree-edit">Lunch Meal #3</label>
+                </div>
+                <div class="input-field">
+                    <input id="dinnerOne-edit" type="text" class="validate">
+                    <label for="dinnerOne-edit">Dinner Meal #1</label>
+                </div>
+                <div class="input-field">
+                    <input id="dinnerTwo-edit" type="text" class="validate">
+                    <label for="dinnerTwo-edit">Dinner Meal #2</label>
+                </div>
+                <div class="input-field">
+                    <input id="dinnerThree-edit" type="text" class="validate">
+                    <label for="dinnerThree-edit">Dinner Meal #3</label>
+                </div> -->
+            </div>
+        </div>
+        <div class="modal-footer"></div>
+    </div>
 </body>
 </html>

@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap');
 
-body {
+html {
     scroll-behavior: smooth;
+}
+
+body {
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(68,68,68,1) 50%, rgba(0,0,0,1) 100%);
 }
 
@@ -104,6 +107,7 @@ body {
 .datesForExercise {
     background-color: black;
     font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }
 
 .datesForFood {
@@ -111,7 +115,19 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.dateDiv, .dateDivTwo, .createExercise {
+.createExercise, .editButton {
+    margin-top: 10px;
+    height: 50px;
+    width: 100px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+}
+
+.dateDiv, .dateDivTwo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,6 +150,19 @@ body {
 .difficulty, .sets, .reps {
     font-family: 'Montserrat', sans-serif;
 }
+
+.directionButton {
+    height: 50px;
+    width: 100px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+}
+
+
 
 .foodtracker {
     display: grid;

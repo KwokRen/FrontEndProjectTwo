@@ -11,10 +11,52 @@ const getAll = async () => {
     const response = await fetch(`${URL}/fitness`);
     const data = await response.json()
     data.forEach((exercise) => {
-        const $dateDiv = $('<div>').attr({'id': exercise._id, 'class': 'dateDiv'}).text(`Day: ${exercise.day}`).on('click', displayExercise);
+        const $dateDiv = $('<div>').attr({'id': exercise._id, 'class': 'dateDiv'}).text(`Day: ${exercise.day}`).on('click', displayExercise).on('click', editExercise);
         $('.datesForExercise').append($dateDiv);
     })
+    const $editButton = $('<button>').attr({'class': "waves-effect waves-light btn modal-trigger editButton", 'data-target': "modal1"}).text('Edit').on('click', (event) => {
+        $('.modal').modal('show')
+    })
+    //const $editButton = $('<button>').attr('class', 'editButton').text('Edit')
+    $('.datesForExercise').append($editButton);
 }
+// populating values to the edit div 
+const editExercise = async () => {
+    const response = await fetch(`${URL}/fitness/${event.target.id}`);
+    const data = await response.json()
+    console.log(data)
+    const routineIndexOne = data.exercises[0].routine
+        $('#routine-editOne').val(routineIndexOne)
+    const routineIndexTwo = data.exercises[1].routine
+        $('#routine-editTwo').val(routineIndexTwo)
+    const routineIndexThree = data.exercises[2].routine
+        $('#routine-editThree').val(routineIndexThree)
+    const difficultyIndexOne = data.exercises[0].difficulty
+        $('#difficulty-editOne').val(difficultyIndexOne)
+    const difficultyIndexTwo = data.exercises[1].difficulty
+        $('#difficulty-editTwo').val(difficultyIndexTwo)
+    const difficultyIndexThree = data.exercises[2].difficulty
+        $('#difficulty-editThree').val(difficultyIndexThree)
+    const setsIndexOne = data.exercises[0].sets
+        $('#sets-editOne').val(setsIndexOne)
+    const setsIndexTwo = data.exercises[1].sets
+        $('#sets-editTwo').val(setsIndexTwo)
+    const setsIndexThree = data.exercises[2].sets
+        $('#sets-editThree').val(setsIndexThree)
+    const repsIndexOne = data.exercises[0].reps
+        $('#reps-editOne').val(repsIndexOne)
+    const repsIndexTwo = data.exercises[1].reps
+        $('#reps-editTwo').val(repsIndexTwo)
+    const repsIndexThree = data.exercises[2].reps
+        $('#reps-editThree').val(repsIndexThree)
+    const directionsIndexOne = data.exercises[0].directionVideo
+        $('#directions-editOne').val(directionsIndexOne)
+    const directionsIndexTwo = data.exercises[1].directionVideo
+        $('#directions-editTwo').val(directionsIndexTwo)
+    const directionsIndexThree = data.exercises[2].directionVideo
+        $('#directions-editThree').val(directionsIndexThree)
+}
+
 // seperated clicking on dates for both of the links
 const getAllFood = async () => {
     const response = await fetch(`${URL}/fitness/food`);
@@ -80,6 +122,9 @@ const displayExercise = async () => {
     })
 }
 
+// $(document).ready(function(){
+//     $('.modal').modal();
+//   });
 
 getAll()
 
