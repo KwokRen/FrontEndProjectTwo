@@ -1,5 +1,5 @@
 // where the netlify website will be
-const deployedURL = 'https://projecttwoga.herokuapp.com/'
+const deployedURL = 'https://projecttwoga.herokuapp.com'
 // developmental purposes will use local host
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
