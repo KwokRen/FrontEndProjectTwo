@@ -31,7 +31,9 @@ const getAll = async () => {
     $('.datesForExercise').append($editButton)
 }
 
-const create = async () => {
+    
+
+$('#createSubmit').on('click', async (event) => {
     const newFitness = [{
         day: $('#day-create').val(),
         exercises: [
@@ -73,17 +75,19 @@ const create = async () => {
         body: JSON.stringify(newFitness)
     })
     const data = await response.json()
-    return data
-}
-$('#createSubmit').on('click', async (event) => {
-    const exerciseDataID = await create();
-    console.log(exerciseDataID);
+    console.log(data)
+    console.log(data[0])
     $('.modal').modal('hide');
     $('#showOneExercise').empty()
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
-    displayExercise(exerciseDataID._id);
+    $('.datesForExercise').empty()
+    $('.datesForFood').empty()
+    getAll()
+    getAllFood()
+    displayExercise(data[0]._id);
+    displayFood(data[0].food[0]._id);
 })
 
 
@@ -320,16 +324,19 @@ const destroy = async (event) => {
       method: "delete"
     })
     const data = await response.json()
-    return data
 }
 
 $('#exerciseDelete').on('click', async () => {
-    destroy(),
+    await destroy(),
     $('#edit-modal').modal('hide')
     $('#showOneExercise').empty()
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
+    $('.datesForExercise').empty()
+    $('.datesForFood').empty()
+    getAll()
+    getAllFood()
 })
 
 getAll()
