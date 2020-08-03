@@ -81,7 +81,6 @@ $('#createSubmit').on('click', async (event) => {
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
-    location.reload(true)
 })
 
 
@@ -325,7 +324,6 @@ $('#exerciseDelete').on('click', async () => {
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
-    location.reload(true)
 })
 
 getAll()
