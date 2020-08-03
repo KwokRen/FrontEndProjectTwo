@@ -73,6 +73,7 @@ const create = async () => {
         body: JSON.stringify(newFitness),
     })
     const data = await response.json()
+    return data
 }
 $('#createSubmit').on('click', async (event) => {
     create();
@@ -319,6 +320,7 @@ const destroy = async (event) => {
       method: "delete"
     })
     const data = await response.json()
+    return data
 }
 
 $('#exerciseDelete').on('click', async () => {
