@@ -72,8 +72,8 @@ const create = async () => {
         },
         body: JSON.stringify(newFitness),
     })
-}
     const data = await response.json()
+}
 $('#createSubmit').on('click', async (event) => {
     create();
     $('.modal').modal('hide');
@@ -318,8 +318,9 @@ const destroy = async (event) => {
     const response = await fetch(`${URL}/fitness/${updated_Exercise}`, {
       method: "delete"
     })
+    const data = await response.json()
 }
-const data = await response.json()
+
 $('#exerciseDelete').on('click', async () => {
     destroy(),
     $('#edit-modal').modal('hide')
