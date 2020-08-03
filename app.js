@@ -329,7 +329,6 @@ $('#exerciseDelete').on('click', async () => {
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
-    
 })
 
 getAll()
