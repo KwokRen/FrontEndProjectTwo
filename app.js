@@ -25,13 +25,67 @@ const getAll = async () => {
         });
         $('.datesForExercise').append($dateDiv);
     })
-    const $editButton = $('<button>').attr({'class': "waves-effect waves-light btn modal-trigger editButton", 'data-target': "modal1"}).text('Edit').on('click', (event) => {
+    const $editButton = $('<button>').attr({'class': "btn btn-primary editButton", 'data-toggle': "modal" ,'data-target':"#exampleModal"}).text('Edit').on('click', (event) => {
         $('#edit-modal').modal();
     });
-    $('.datesForExercise').append($editButton);
+    $('.datesForExercise').append($editButton)
 }
 
-$("#submit-edit").on('click', async (event) => {
+const create = async () => {
+    const newFitness = [{
+        day: $('#day-create').val(),
+        exercises: [
+            {
+                routine: $('#routine-createOne').val(),
+                difficulty: $('#difficulty-createOne').val(),
+                sets: $('#sets-createOne').val(),
+                reps: $('#reps-createOne').val(),
+                directionVideo: $('#directions-createOne').val()
+            },
+            {
+                routine: $('#routine-createTwo').val(),
+                difficulty: $('#difficulty-createTwo').val(),
+                sets: $('#sets-createTwo').val(),
+                reps: $('#reps-createTwo').val(),
+                directionVideo: $('#directions-createTwo').val()
+            },
+            {
+                routine: $('#routine-createThree').val(),
+                difficulty: $('#difficulty-createThree').val(),
+                sets: $('#sets-createThree').val(),
+                reps: $('#reps-createThree').val(),
+                directionVideo: $('#directions-createThree').val()
+            }
+        ]
+    },
+    {
+        dayNumber: $('#day-create').val(),
+        breakfast: [$('#breakfastOne-create').val(), $('#breakfastTwo-create').val(), $('#breakfastThree-create').val()],
+        lunch: [$('#lunchOne-create').val(), $('#lunchTwo-create').val(), $('#lunchThree-create').val()],
+        dinner: [$('#dinnerOne-create').val(),$('#dinnerTwo-create').val(),$('#dinnerThree-create').val()]
+    }]
+    const response = await fetch(`${URL}/fitness`, {
+        method: "post",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newFitness),
+    })
+}
+
+$('#createSubmit').on('click', async (event) => {
+    create();
+    $('.modal').modal('hide');
+    $('#showOneExercise').empty()
+    $('.breakfastContainer').empty()
+    $('.lunchContainer').empty()
+    $('.dinnerContainer').empty()
+    location.reload();
+    return false;
+})
+
+
+$("#exerciseEditSubmit").on('click', async (event) => {
     const updatedExercise = {
         exercises: [
             {
@@ -163,13 +217,13 @@ const getAllFood = async () => {
         });
         $('.datesForFood').append($dateDivTwo);
     })
-    const $editFoodButton = $('<button>').attr({'class': "waves-effect waves-light btn modal-trigger editButton"}).text('Edit').on('click', (event) => {
+    const $editFoodButton = $('<button>').attr({'class': "btn btn-primary editButton", "data-toggle": "modal", "data-target":"#exampleModal"}).text('Edit').on('click', (event) => {
         $('#editFood-modal').modal();
     })
-    $('.datesForFood').append($editFoodButton);
+    $('.datesForFood').append($editFoodButton)
 }
 
-$("#submit-foodEdit").on('click', async (event) => {
+$("#foodEditSubmit").on('click', async (event) => {
     const updatedFood = {
         breakfast: [$('#breakfastOne-edit').val(), $('#breakfastTwo-edit').val(), $('#breakfastThree-edit').val()],
         lunch: [$('#lunchOne-edit').val(), $('#lunchTwo-edit').val(), $('#lunchThree-edit').val()],
@@ -258,7 +312,21 @@ const editFood = async () => {
     })
 }
 
+const destroy = async (event) => {
+    const response = await fetch(`${URL}/fitness/${updated_Exercise}`, {
+      method: "delete"
+    })
+}
 
+$('#exerciseDelete').on('click', async () => {
+    destroy(),
+    $('#edit-modal').modal('hide')
+    $('.breakfastContainer').empty()
+    $('.lunchContainer').empty()
+    $('.dinnerContainer').empty()
+    location.reload();
+    return false;
+})
 
 getAll()
 
