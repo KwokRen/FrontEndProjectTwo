@@ -64,6 +64,7 @@ const create = async () => {
         lunch: [$('#lunchOne-create').val(), $('#lunchTwo-create').val(), $('#lunchThree-create').val()],
         dinner: [$('#dinnerOne-create').val(),$('#dinnerTwo-create').val(),$('#dinnerThree-create').val()]
     }]
+    console.log(newFitness)
     const response = await fetch(`${URL}/fitness`, {
         method: "post",
         headers: {
@@ -80,8 +81,8 @@ $('#createSubmit').on('click', async (event) => {
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
-    location.reload();
-    return false;
+    // location.reload();
+    // return false;
 })
 
 
@@ -313,6 +314,7 @@ const editFood = async () => {
 }
 
 const destroy = async (event) => {
+    console.log(updated_Exercise)
     const response = await fetch(`${URL}/fitness/${updated_Exercise}`, {
       method: "delete"
     })
@@ -324,8 +326,8 @@ $('#exerciseDelete').on('click', async () => {
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
-    location.reload();
-    return false;
+    // location.reload();
+    // return false;
 })
 
 getAll()
