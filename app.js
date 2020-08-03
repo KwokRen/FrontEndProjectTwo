@@ -3,15 +3,24 @@
 const deployedURL = null
 // developmental purposes will use local host
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
-
+let updated_Exercise = ''
+let updated_Food = ''
 ///////// DISPLAY ALL /////////
 
 const getAll = async () => {
     // fetch data from the database and return a promise
     const response = await fetch(`${URL}/fitness`);
     const data = await response.json()
-    data.forEach((exercise) => {
-        const $dateDiv = $('<div>').attr({'id': exercise._id, 'class': 'dateDiv'}).text(`Day: ${exercise.day}`).on('click', displayExercise).on('click', editExercise);
+        data.forEach((exercise) => {
+        const $dateDiv = $('<div>')
+        .attr({'id': exercise._id, 'class': 'dateDiv'})
+        .text(`Day: ${exercise.day}`)
+        .on('click', displayExercise)
+        .on('click', editExercise)
+        .on('click', () => {
+            updated_Exercise = exercise._id
+            console.log(updated_Exercise);
+        });
         $('.datesForExercise').append($dateDiv);
     })
     const $editButton = $('<button>').attr({'class': "waves-effect waves-light btn modal-trigger editButton", 'data-target': "modal1"}).text('Edit').on('click', (event) => {
@@ -20,9 +29,67 @@ const getAll = async () => {
     $('.datesForExercise').append($editButton);
 }
 
-$("#submit-edit").on('click', (event) => {
+$("#submit-edit").on('click', async (event) => {
+    const updatedExercise = {
+        exercises: [
+            {
+                routine: $('#routine-editOne').val(),
+                difficulty: $('#difficulty-editOne').val(),
+                sets: $('#sets-editOne').val(),
+                reps: $('#reps-editOne').val(),
+                directionVideo: $('#directions-editOne').val()
+            },
+            {
+                routine: $('#routine-editTwo').val(),
+                difficulty: $('#difficulty-editTwo').val(),
+                sets: $('#sets-editTwo').val(),
+                reps: $('#reps-editTwo').val(),
+                directionVideo: $('#directions-editTwo').val()
+            },
+            {
+                routine: $('#routine-editThree').val(),
+                difficulty: $('#difficulty-editThree').val(),
+                sets: $('#sets-editThree').val(),
+                reps: $('#reps-editThree').val(),
+                directionVideo: $('#directions-editThree').val()
+            }
+        ]
+    }
+    console.log(updated_Exercise)
+    await fetch(`${URL}/fitness/${updated_Exercise}`, {
+        method: "put",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(updatedExercise)
+    })
     $('.modal').modal('hide');
 })
+
+//////// DISPLAYS ONE DAYS WORTH OF EXERCISES /////////
+
+const displayExercise = async () => {
+    const response = await fetch(`${URL}/fitness/${event.target.id}`);
+    const data = await response.json()
+    console.log(data);
+    $('#showOneExercise').empty()
+    data.exercises.forEach((exercise) => {
+        const $exerciseDiv = $('<div>').attr({'id': exercise._id, 'class': 'exerciseDiv'});
+        const $routineHeading = $('<h4>').text(`${exercise.routine}`).attr('class', 'routineHeadings');
+        const $difficulty = $('<h6>').text(`${exercise.difficulty}`).attr('class', 'difficulty');
+        const $sets = $('<h6>').text(`${exercise.sets}`).attr('class', 'sets');
+        const $reps = $('<h6>').text(`${exercise.reps}`).attr('class', 'reps');
+        const $directionButton = $('<button>').text(`Directions`).attr('class','directionButton');
+        const $directions = $('<a>').attr({'href': exercise.directionVideo, 'target': '_blank'});
+        $directions.append($directionButton);
+        $exerciseDiv.append($routineHeading);
+        $exerciseDiv.append($difficulty);
+        $exerciseDiv.append($sets);
+        $exerciseDiv.append($reps);
+        $exerciseDiv.append($directions);
+        $('#showOneExercise').append($exerciseDiv);
+    })
+}
+
+
 
 
 
@@ -30,7 +97,22 @@ $("#submit-edit").on('click', (event) => {
 const editExercise = async () => {
     const response = await fetch(`${URL}/fitness/${event.target.id}`);
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
+    $('#routine-editOne').val('')
+    $('#routine-editTwo').val('')
+    $('#routine-editThree').val('')
+    $('#difficulty-editOne').val('')
+    $('#difficulty-editTwo').val('')
+    $('#difficulty-editThree').val('')
+    $('#sets-editOne').val('')
+    $('#sets-editTwo').val('')
+    $('#sets-editThree').val('')
+    $('#reps-editOne').val('')
+    $('#reps-editTwo').val('')
+    $('#reps-editThree').val('')
+    $('#directions-editOne').val('')
+    $('#directions-editTwo').val('')
+    $('#directions-editThree').val('')
     const routineIndexOne = data.exercises[0].routine
         $('#routine-editOne').val(routineIndexOne)
     const routineIndexTwo = data.exercises[1].routine
@@ -69,7 +151,14 @@ const getAllFood = async () => {
     const data = await response.json()
     console.log(data);
     data.forEach((food) => {
-        const $dateDivTwo = $('<div>').attr({'id': food._id, 'class': 'dateDivTwo'}).text(`Day: ${food.dayNumber}`).on('click', displayFood).on('click', editFood);
+        const $dateDivTwo = $('<div>').attr({'id': food._id, 'class': 'dateDivTwo'})
+        .text(`Day: ${food.dayNumber}`)
+        .on('click', displayFood)
+        .on('click', editFood)
+        .on('click', () => {
+            updated_Food = food._id
+            console.log(updated_Food)
+        });
         $('.datesForFood').append($dateDivTwo);
     })
     const $editFoodButton = $('<button>').attr({'class': "waves-effect waves-light btn modal-trigger editButton"}).text('Edit').on('click', (event) => {
@@ -78,9 +167,19 @@ const getAllFood = async () => {
     $('.datesForFood').append($editFoodButton);
 }
 
-$("#submit-foodEdit").on('click', (event) => {
+$("#submit-foodEdit").on('click', async (event) => {
+    const updatedFood = {
+        breakfast: [$('#breakfastOne-edit').val(), $('#breakfastTwo-edit').val(), $('#breakfastThree-edit').val()],
+        lunch: [$('#lunchOne-edit').val(), $('#lunchTwo-edit').val(), $('#lunchThree-edit').val()],
+        dinner: [$('#dinnerOne-edit').val(),$('#dinnerTwo-edit').val(),$('#dinnerThree-edit').val()]
+    }
+    await fetch(`${URL}/fitness/food/${updated_Food}`, {
+                method: "put",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(updatedFood)
+            })
     $('.modal').modal('hide');
-    $()
+    
 })
 
 // displays the food
@@ -155,31 +254,6 @@ const editFood = async () => {
 }
 
 
-//////// DISPLAYS ONE DAYS WORTH OF EXERCISES /////////
-
-const displayExercise = async () => {
-    const response = await fetch(`${URL}/fitness/${event.target.id}`);
-    const data = await response.json()
-    console.log(data);
-    $('#showOneExercise').empty()
-    data.exercises.forEach((exercise) => {
-        const $exerciseDiv = $('<div>').attr({'id': exercise._id, 'class': 'exerciseDiv'});
-        const $routineHeading = $('<h4>').text(`${exercise.routine}`).attr('class', 'routineHeadings');
-        const $difficulty = $('<h6>').text(`${exercise.difficulty}`).attr('class', 'difficulty');
-        const $sets = $('<h6>').text(`${exercise.sets}`).attr('class', 'sets');
-        const $reps = $('<h6>').text(`${exercise.reps}`).attr('class', 'reps');
-        const $directionButton = $('<button>').text(`Directions`).attr('class','directionButton');
-        console.log(exercise.directionVideo);
-        const $directions = $('<a>').attr({'href': exercise.directionVideo, 'target': '_blank'});
-        $directions.append($directionButton);
-        $exerciseDiv.append($routineHeading);
-        $exerciseDiv.append($difficulty);
-        $exerciseDiv.append($sets);
-        $exerciseDiv.append($reps);
-        $exerciseDiv.append($directions);
-        $('#showOneExercise').append($exerciseDiv);
-    })
-}
 
 getAll()
 
