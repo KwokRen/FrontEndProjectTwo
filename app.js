@@ -76,14 +76,14 @@ const create = async () => {
     return data
 }
 $('#createSubmit').on('click', async (event) => {
-    console.log(exercise_ID);
-    const exercise_ID = create();
+    const exerciseDataID = await create();
+    console.log(exerciseDataID);
     $('.modal').modal('hide');
     $('#showOneExercise').empty()
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
-    displayExercise(exercise_ID._id);
+    displayExercise(exerciseDataID._id);
 })
 
 
