@@ -1,6 +1,6 @@
 // where the heroku website will be
-const deployedURL = 'https://projecttwoga.herokuapp.com'
-// const deployedURL = null
+// const deployedURL = 'https://projecttwoga.herokuapp.com'
+const deployedURL = null
 // developmental purposes will use local host
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 let updated_Exercise = ''
@@ -15,7 +15,9 @@ const getAll = async () => {
         const $dateDiv = $('<div>')
         .attr({'id': exercise._id, 'class': 'dateDiv'})
         .text(`Day: ${exercise.day}`)
-        .on('click', displayExercise)
+        .on('click', () => {
+            displayExercise(exercise._id)
+        })
         .on('click', editExercise)
         .on('click', () => {
             updated_Exercise = exercise._id
@@ -62,12 +64,14 @@ $("#submit-edit").on('click', async (event) => {
         body: JSON.stringify(updatedExercise)
     })
     $('.modal').modal('hide');
+    $('#showOneExercise').empty()
+    displayExercise(updated_Exercise);
 })
 
 //////// DISPLAYS ONE DAYS WORTH OF EXERCISES /////////
 
-const displayExercise = async () => {
-    const response = await fetch(`${URL}/fitness/${event.target.id}`);
+const displayExercise = async (exerciseID) => {
+    const response = await fetch(`${URL}/fitness/${exerciseID}`);
     const data = await response.json()
     console.log(data);
     $('#showOneExercise').empty()
@@ -88,10 +92,6 @@ const displayExercise = async () => {
         $('#showOneExercise').append($exerciseDiv);
     })
 }
-
-
-
-
 
 // populating values to the edit div 
 const editExercise = async () => {
@@ -153,7 +153,9 @@ const getAllFood = async () => {
     data.forEach((food) => {
         const $dateDivTwo = $('<div>').attr({'id': food._id, 'class': 'dateDivTwo'})
         .text(`Day: ${food.dayNumber}`)
-        .on('click', displayFood)
+        .on('click', () => {
+            displayFood(food._id)
+        })
         .on('click', editFood)
         .on('click', () => {
             updated_Food = food._id
@@ -179,12 +181,15 @@ $("#submit-foodEdit").on('click', async (event) => {
                 body: JSON.stringify(updatedFood)
             })
     $('.modal').modal('hide');
-    
+    $('.breakfastContainer').empty()
+    $('.lunchContainer').empty()
+    $('.dinnerContainer').empty()
+    displayFood(updated_Food)
 })
 
 // displays the food
-const displayFood = async () => {
-    const response = await fetch(`${URL}/fitness/food/${event.target.id}`);
+const displayFood = async (foodID) => {
+    const response = await fetch(`${URL}/fitness/food/${foodID}`);
     const data = await response.json()
     console.log(data)
     $('.breakfastContainer').empty()
