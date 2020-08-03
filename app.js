@@ -70,16 +70,19 @@ const create = async () => {
         headers: {
         "Content-Type": "application/json",
         },
-        body: JSON.stringify(newFitness),
+        body: JSON.stringify(newFitness)
     })
+    const data = await response.json()
+    return data
 }
 $('#createSubmit').on('click', async (event) => {
-    create();
+    const exercise_ID = create();
     $('.modal').modal('hide');
     $('#showOneExercise').empty()
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
+    displayExercise(exercise_ID._id);
 })
 
 
@@ -322,9 +325,11 @@ const destroy = async (event) => {
 $('#exerciseDelete').on('click', async () => {
     destroy(),
     $('#edit-modal').modal('hide')
+    $('#showOneExercise').empty()
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
+    
 })
 
 getAll()
