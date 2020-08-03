@@ -80,6 +80,7 @@ const getAllFood = async () => {
 
 $("#submit-foodEdit").on('click', (event) => {
     $('.modal').modal('hide');
+    $()
 })
 
 // displays the food
@@ -110,11 +111,22 @@ const displayFood = async () => {
     $('.dinner').append($dinnerContainer);
 }
 
+// Places the previous values food onto the modal to edit
+
 const editFood = async () => {
     const response = await fetch(`${URL}/fitness/food/${event.target.id}`);
     const data = await response.json()
+        $('#breakfastOne-edit').val('')
+        $('#breakfastTwo-edit').val('')
+        $('#breakfastThree-edit').val('')
+        $('#lunchOne-edit').val('')
+        $('#lunchTwo-edit').val('')
+        $('#lunchThree-edit').val('')
+        $('#dinnerOne-edit').val('')
+        $('#dinnerTwo-edit').val('')
+        $('#dinnerThree-edit').val('')
     data.breakfast.forEach((element, index) => {
-        if (index === 0){
+        if (index === 0){ 
             $('#breakfastOne-edit').val(element)
         } else if (index === 1) {
             $('#breakfastTwo-edit').val(element)
