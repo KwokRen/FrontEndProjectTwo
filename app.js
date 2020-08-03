@@ -72,8 +72,6 @@ const create = async () => {
         },
         body: JSON.stringify(newFitness),
     })
-    const data = await response.json()
-    return data
 }
 $('#createSubmit').on('click', async (event) => {
     create();
@@ -82,8 +80,6 @@ $('#createSubmit').on('click', async (event) => {
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
-    displayExercise(data._id)
-    displayFood(data.food._id)
 })
 
 
@@ -329,8 +325,6 @@ $('#exerciseDelete').on('click', async () => {
     $('.breakfastContainer').empty()
     $('.lunchContainer').empty()
     $('.dinnerContainer').empty()
-    displayExercise(data[0]._id)
-    displayFood(data[0].food._id)
 })
 
 getAll()
