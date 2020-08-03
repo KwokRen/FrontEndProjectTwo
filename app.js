@@ -69,7 +69,7 @@ const getAllFood = async () => {
     const data = await response.json()
     console.log(data);
     data.forEach((food) => {
-        const $dateDivTwo = $('<div>').attr({'id': food._id, 'class': 'dateDivTwo'}).text(`Day: ${food.dayNumber}`).on('click', displayFood);
+        const $dateDivTwo = $('<div>').attr({'id': food._id, 'class': 'dateDivTwo'}).text(`Day: ${food.dayNumber}`).on('click', displayFood).on('click', editFood);
         $('.datesForFood').append($dateDivTwo);
     })
     const $editFoodButton = $('<button>').attr({'class': "waves-effect waves-light btn modal-trigger editButton"}).text('Edit').on('click', (event) => {
@@ -81,6 +81,7 @@ const getAllFood = async () => {
 $("#submit-foodEdit").on('click', (event) => {
     $('.modal').modal('hide');
 })
+
 // displays the food
 const displayFood = async () => {
     const response = await fetch(`${URL}/fitness/food/${event.target.id}`);
@@ -107,6 +108,38 @@ const displayFood = async () => {
         $dinnerContainer.append($dinnerList)
     })
     $('.dinner').append($dinnerContainer);
+}
+
+const editFood = async () => {
+    const response = await fetch(`${URL}/fitness/food/${event.target.id}`);
+    const data = await response.json()
+    data.breakfast.forEach((element, index) => {
+        if (index === 0){
+            $('#breakfastOne-edit').val(element)
+        } else if (index === 1) {
+            $('#breakfastTwo-edit').val(element)
+        } else {
+            $('#breakfastThree-edit').val(element)
+        }
+    })
+    data.lunch.forEach((element, index) => {
+        if (index === 0){
+            $('#lunchOne-edit').val(element)
+        } else if (index === 1) {
+            $('#lunchTwo-edit').val(element)
+        } else {
+            $('#lunchThree-edit').val(element)
+        }
+    })
+    data.dinner.forEach((element, index) => {
+        if (index === 0){
+            $('#dinnerOne-edit').val(element)
+        } else if (index === 1) {
+            $('#dinnerTwo-edit').val(element)
+        } else {
+            $('#dinnerThree-edit').val(element)
+        }
+    })
 }
 
 
