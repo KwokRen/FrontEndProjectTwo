@@ -76,6 +76,7 @@ const create = async () => {
     return data
 }
 $('#createSubmit').on('click', async (event) => {
+    console.log(exercise_ID);
     const exercise_ID = create();
     $('.modal').modal('hide');
     $('#showOneExercise').empty()
