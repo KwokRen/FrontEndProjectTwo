@@ -356,7 +356,6 @@ ul {
 }
 
 .modal-content {
-    background-color: rgba(240,230,140,1);
     color: black;
 }
 
@@ -368,7 +367,7 @@ ul {
 #createSubmit:hover, #exerciseEditSubmit:hover, #foodEditSubmit:hover {
     border: 1px solid green;
     background-color: green;
-    color: black;
+    color: rgba(240,230,140,1);
 }
 
 #exerciseDelete:hover {
