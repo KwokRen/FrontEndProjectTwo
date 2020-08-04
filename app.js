@@ -255,7 +255,7 @@ const displayFood = async (foodID) => {
     $('.breakfastContainer').empty()
     const $breakfastContainer = $('.breakfastContainer')
     data.breakfast.forEach((breakfast) => {
-        const $breakfastList = $('<li>').text(`${breakfast}`).on('click', () => {
+        const $breakfastList = $('<li>').attr('class', 'breakfastList').text(`${breakfast}`).on('click', () => {
             $breakfastList.toggleClass('strikethrough')
         })
         $breakfastContainer.append($breakfastList)
@@ -264,7 +264,7 @@ const displayFood = async (foodID) => {
     $('.lunchContainer').empty()
     const $lunchContainer = $('.lunchContainer')
     data.lunch.forEach((lunch) => {
-        const $lunchList = $('<li>').text(`${lunch}`).on('click', () => {
+        const $lunchList = $('<li>').attr('class', 'lunchList').text(`${lunch}`).on('click', () => {
             $lunchList.toggleClass('strikethrough')
         })
         $lunchContainer.append($lunchList)
@@ -273,7 +273,7 @@ const displayFood = async (foodID) => {
     $('.dinnerContainer').empty()
     const $dinnerContainer = $('.dinnerContainer')
     data.dinner.forEach((dinner) => {
-        const $dinnerList = $('<li>').text(`${dinner}`).on('click', () => {
+        const $dinnerList = $('<li>').attr('class', 'dinnerList').text(`${dinner}`).on('click', () => {
             $dinnerList.toggleClass('strikethrough')
         })
         $dinnerContainer.append($dinnerList)

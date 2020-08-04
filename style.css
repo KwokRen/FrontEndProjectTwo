@@ -212,6 +212,7 @@ ul {
     align-items: center;
     color: white;
     height: 80px;
+    font-size: 25px;
 }
 
 .dateDiv:hover, .dateDivTwo:hover {
@@ -240,7 +241,7 @@ ul {
     font-size: 30px;
 }
 
-.sets, .reps {
+.sets, .reps, .breakfastList, .lunchList, .dinnerList{
     font-size: 30px;
 }
 
@@ -298,6 +299,14 @@ ul {
 .breakfast, .lunch, .dinner {
     border-right: 1px solid black;
     font-family: 'Montserrat', sans-serif;
+}
+
+.breakfastContainer, .lunchContainer, .dinnerContainer {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .footer > a > img {
