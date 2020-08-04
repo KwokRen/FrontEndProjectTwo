@@ -25,10 +25,9 @@ const getAll = async () => {
         });
         $('.datesForExercise').append($dateDiv);
     })
-    const $editButton = $('<button>').attr({'class': "btn btn-primary editButton", 'data-toggle': "modal" ,'data-target':"#exampleModal"}).text('Edit').on('click', (event) => {
+        $('.editButton').on('click', (event) => {
         $('#edit-modal').modal();
     });
-    $('.datesForExercise').append($editButton)
 }
 
     
@@ -137,11 +136,13 @@ const displayExercise = async (exerciseID) => {
     $('#showOneExercise').empty()
     data.exercises.forEach((exercise) => {
         const $exerciseDiv = $('<div>').attr({'id': exercise._id, 'class': 'exerciseDiv'});
-        const $routineHeading = $('<h4>').text(`${exercise.routine}`).attr('class', 'routineHeadings');
+        const $routineHeading = $('<h4>').text(`${exercise.routine}`).attr('class', 'routineHeadings').on('click', () => {
+            $routineHeading.toggleClass('strikethrough');
+        })
         const $difficulty = $('<h6>').text(`${exercise.difficulty}`).attr('class', 'difficulty');
-        const $sets = $('<h6>').text(`${exercise.sets}`).attr('class', 'sets');
-        const $reps = $('<h6>').text(`${exercise.reps}`).attr('class', 'reps');
-        const $directionButton = $('<button>').text(`Directions`).attr('class','directionButton');
+        const $sets = $('<h6>').html(`<span class="setsWord">Sets:</span> ${exercise.sets}`).attr('class', 'sets');
+        const $reps = $('<h6>').html(`<span class="repsWord">Reps:</span> ${exercise.reps}`).attr('class', 'reps');
+        const $directionButton = $('<button>').text(`Directions`).attr('class','directionButton btn btn-primary');
         const $directions = $('<a>').attr({'href': exercise.directionVideo, 'target': '_blank'});
         $directions.append($directionButton);
         $exerciseDiv.append($routineHeading);
@@ -222,11 +223,10 @@ const getAllFood = async () => {
             console.log(updated_Food)
         });
         $('.datesForFood').append($dateDivTwo);
-    })
-    const $editFoodButton = $('<button>').attr({'class': "btn btn-primary editButton", "data-toggle": "modal", "data-target":"#exampleModal"}).text('Edit').on('click', (event) => {
+    })  
+    $('.editFoodButton').on('click', (event) => {
         $('#editFood-modal').modal();
     })
-    $('.datesForFood').append($editFoodButton)
 }
 
 $("#foodEditSubmit").on('click', async (event) => {
@@ -255,21 +255,27 @@ const displayFood = async (foodID) => {
     $('.breakfastContainer').empty()
     const $breakfastContainer = $('.breakfastContainer')
     data.breakfast.forEach((breakfast) => {
-        const $breakfastList = $('<li>').text(`${breakfast}`)
+        const $breakfastList = $('<li>').text(`${breakfast}`).on('click', () => {
+            $breakfastList.toggleClass('strikethrough')
+        })
         $breakfastContainer.append($breakfastList)
     })
     $('.breakfast').append($breakfastContainer);
     $('.lunchContainer').empty()
     const $lunchContainer = $('.lunchContainer')
     data.lunch.forEach((lunch) => {
-        const $lunchList = $('<li>').text(`${lunch}`)
+        const $lunchList = $('<li>').text(`${lunch}`).on('click', () => {
+            $lunchList.toggleClass('strikethrough')
+        })
         $lunchContainer.append($lunchList)
     })
     $('.lunch').append($lunchContainer);
     $('.dinnerContainer').empty()
     const $dinnerContainer = $('.dinnerContainer')
     data.dinner.forEach((dinner) => {
-        const $dinnerList = $('<li>').text(`${dinner}`)
+        const $dinnerList = $('<li>').text(`${dinner}`).on('click', () => {
+            $dinnerList.toggleClass('strikethrough')
+        })
         $dinnerContainer.append($dinnerList)
     })
     $('.dinner').append($dinnerContainer);
@@ -339,7 +345,12 @@ $('#exerciseDelete').on('click', async () => {
     getAllFood()
 })
 
+
+
 getAll()
 
 getAllFood()
+
+///// CSS jQuery //////
+
 

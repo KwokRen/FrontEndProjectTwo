@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' defer></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
@@ -19,7 +21,7 @@
             <!-- Linking back to the homepage. -->
             <a href="index.html">
                 <!-- The link that produces the image that has my icon. -->
-                <img src="https://res.cloudinary.com/dpggcudix/image/upload/v1596334202/Screen_Shot_2020-08-01_at_10.09.34_PM_g8naj2.png" class="iconpic">
+                <img src="https://res.cloudinary.com/dpggcudix/image/upload/v1596501241/Screen_Shot_2020-08-03_at_8.32.50_PM_fzcu7f.png" class="iconpic">
             </a>
         </div>
         <!-- The right part of my navigation bar. -->
@@ -32,9 +34,9 @@
             <div class="rightside">
                 <!-- I put the a tags around the div container so that the whole div will become the link instead of just the word. -->
                 <!-- Each of these links go to different webpages in the same folder except for the last one. -->
-                <a href="../aboutPage/about.html" id="desktopshowhoverA"><div class="desktopshowA">Exercise</div></a>
-                <a href="../projectPage/projects.html" id="desktopshowhoverB"><div class="desktopshowB">Food</div></a>
-                <a href="#contacts" id="desktopshowhoverC"><div class="desktopshowC">Contact</div></a>
+                <a href="#exercise_id"><div class="desktopshowA">Exercise</div></a>
+                <a href="#food_id"><div class="desktopshowB">Food</div></a>
+                <a href="#contact_id"><div class="desktopshowC">Contact</div></a>
             </div>
         <div>
     </nav>
@@ -46,20 +48,26 @@
         <a href="#contacts"><div class="hidden">Contact</div></a>
     </div>
     <div class="banner">
-        <h1 class="hello">OnTrack Coming Soon...</h1>
+        <h1 class="hello">We are OnTrack...</h1>
     </div>
-    <div class="breakpoint"></div>
+    <div class="breakpoint" id="exercise_id"></div>
+    <div class="breakpoint">Exercise Tracker</div>
     <div class="exercise">
         <div class="dates">
-            <button type="button" class="createExercise btn btn-primary" data-toggle="modal" data-target="#create-modal">Create A Day!</button>
-            <div class="datesForExercise">
-            </div>
+            <button type="button" class="createExercise btn btn-primary" data-toggle="modal" data-target="#create-modal"><i class="fa fa-plus"></i></button>
+            <div class="datesForExercise"></div>
+            <button class="btn btn-primary editButton" data-toggle="modal" data-target="#exampleModal"><i class='fas fa-edit'></i></button>
         </div>
             <div id="showOneExercise"></div>
     </div>
-    <div class="breakpoint"></div>
+    <div class="breakpoint" id="food_id"></div>
+    <div class="breakpoint">Food Tracker</div>
     <div class="foodtracker">
-        <div class="datesForFood"></div>
+        <div class="dates">
+            <div class="emptySpace"></div>
+            <div class="datesForFood"></div>
+            <button class="btn btn-primary editFoodButton" data-toggle="modal" data-target="#exampleModal"><i class='fas fa-edit'></i></button>
+        </div>
         <div class="breakfast">
             <div class="breakfastHeading">Breakfast</div>
             <ul class="breakfastContainer"></ul>
@@ -73,7 +81,7 @@
             <ul class="dinnerContainer"></ul>
         </div>
     </div>
-    <div class="footer"></div>
+    <div class="footer" id="contact_id">Copyright © 2020 Kwok Ren<a href="https://kwokren.github.io/project-1-portfolio/projectOne/mainPage/" target="_blank"><img src="assets/KR - Logo-06.png"></a></div>
     <div class="modal" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

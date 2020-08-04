@@ -5,10 +5,14 @@ html {
 }
 
 body {
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(68,68,68,1) 50%, rgba(0,0,0,1) 100%);
+    /* background: linear-gradient(90deg, rgba(218,165,32,1) 0%, rgba(109,83,16,1) 50%, rgba(0,0,0,1) 100%); */
+    /* background:linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url(https://storage.needpix.com/rsynced_images/yoga-silhouette-sunset.jpg);
+    background-size: cover; */
 }
 
+
 .banner > h1 {
+    margin-top: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,11 +23,12 @@ body {
     animation-duration: 10s;
     animation-iteration-count: infinite;
     transition: all 10s ease-in-out;
+    
 }
 
 @keyframes namechange {
     0% {color: black}
-    50% {color: white}
+    50% {color: rgb(218,165,32)}
     100% {color: black}
 }
 
@@ -40,12 +45,10 @@ ul {
     width: 100%;
     justify-content: space-between;
     color: white;
-    background-image: linear-gradient(white, white);
-    border-bottom: 1px solid black;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 25px;
-    background-color: black;
+    background-color:rgba(240,230,140,1);
     position: fixed;
 }
 
@@ -55,10 +58,15 @@ ul {
     margin-left: 50px;
 }
 
+.icon > a {
+    height: 80px;
+    width: 140px;
+    background-color: transparent;
+}
+
 .iconpic {
-    height: 70px;
-    width: 70px;
-    margin: 20px;
+    height: 80px;
+    width: 140px;
 }
 
 .rightsidetop {
@@ -72,6 +80,18 @@ ul {
     justify-content: space-between;
 }
 
+.desktopshowA, .desktopshowB, .desktopshowC {
+    padding: 15px;
+    border-radius: 100px;
+}
+
+.desktopshowA:hover, .desktopshowB:hover, .desktopshowC:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(240,230,140,1);
+    background-color: black;
+    color: rgba(240,230,140,1)
+}
+
 .hidden {
     display: none;
 }
@@ -83,17 +103,41 @@ ul {
 
 .banner {
     display: flex;
-    height: 600px;
+    height: 700px;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(120,115,70,0.7) 50%, rgba(240,230,140,0.7) 100%), url(https://storage.needpix.com/rsynced_images/yoga-silhouette-sunset.jpg);
+    background-size: cover;
 }
 
 .breakpoint {
-    height: 100px;
+    display: flex;
+    height: 88px;
+    background-color:black;
+    color: rgb(240,230,140);
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-family: 'Bebas Neue', cursive;
+    border-bottom: 1px solid rgb(240,230,140);
+    border-top: 1px solid rgb(240,230,140);
 }
 
+#exercise_id {
+    background-color: rgb(240,230,140);
+}
+
+
 .footer {
-    height: 90px;
+    height: 80px;
+    background-color:black;
+    border-top: 1px solid rgb(240,230,140);
+    color: rgb(240,230,140);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
 }
 
 .exercise, .foodtracker {
@@ -105,6 +149,7 @@ ul {
     display: grid;
     grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr;
+    height: 530px
 }
 
 .exerciseContainer {
@@ -112,28 +157,60 @@ ul {
     justify-content: space-around;
 }
 
-.datesForExercise {
+.dates, .datesForFood {
     background-color: black;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
 
-.datesForFood {
-    background-color: black;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
+.datesForExercise, .datesForFood {
+    overflow-y: scroll;
+    height: 250px;
 }
 
-.createExercise, .editButton, .deleteButton {
-    margin-top: 10px;
-    height: 50px;
-    width: 120px;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 20px;
+.emptySpace {
+    height: 110px;
+}
+
+.editButton, .editFoodButton {
+    margin-top: 20px;
+    height: 90px;
+    width: 110px;
     border: none;
     border-radius: 10px;
+    color: rgb(240,230,140);
+    background-color: black;
+    text-align: center;
+}
+
+
+.editButton:hover, .editFoodButton:hover {
+    background-color: rgb(240,230,140);
     color: black;
-    background-color: white;
+}
+
+.createExercise {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    height: 90px;
+    width: 110px;
+    border: none;
+    border-radius: 10px;
+    color: rgb(240,230,140);
+    background-color: black;
+}
+
+.createExercise:hover {
+    background-color: rgb(240,230,140);
+    color: black;
+}
+
+.fa-plus {
+    font-size: 48px;
+}
+
+.fa-edit {
+    font-size: 48px;
 }
 
 .dateDiv, .dateDivTwo {
@@ -141,7 +218,13 @@ ul {
     justify-content: center;
     align-items: center;
     color: white;
-    height: 100px;
+    height: 80px;
+}
+
+.dateDiv:hover, .dateDivTwo:hover {
+    background-color: rgb(240,230,140);
+    color: black;
+    cursor: pointer;
 }
 
 #showOneExercise {
@@ -149,11 +232,37 @@ ul {
     text-align: center;
     align-self: flex-start;
     justify-content: space-around;
+    height: 500px;
+}
+
+#showOneExercise > div  {
+    align-self: center;
+}
+
+#showOneExercise > div > h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 2rem;
+}
+
+.difficulty {
+    font-size: 30px;
+}
+
+.sets, .reps {
+    font-size: 30px;
+}
+
+.setsWord, .repsWord {
+    text-decoration: underline;
 }
 
 .routineHeadings {
     border-bottom: 1px solid black;
     font-family: 'Bebas Neue', cursive;
+    font-size: 40px;
+}
+
+.strikethrough {
+    text-decoration: line-through;
 }
 
 .difficulty, .sets, .reps {
@@ -162,7 +271,7 @@ ul {
 
 .directionButton {
     height: 50px;
-    width: 100px;
+    width: 110px;
     font-family: 'Bebas Neue', cursive;
     font-size: 20px;
     border: none;
@@ -171,10 +280,16 @@ ul {
     background-color: black;
 }
 
+.directionButton:hover {
+    background-color: rgb(240,230,140);
+    color: black;
+}
+
 .foodtracker {
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr;
     grid-template-rows: 1fr;
+    height: 530px;
 }
 
 .breakfastHeading, .lunchHeading, .dinnerHeading {
@@ -192,3 +307,13 @@ ul {
     font-family: 'Montserrat', sans-serif;
 }
 
+.footer > a > img {
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+.footer > a > img:hover {
+    filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 1));
+    cursor: pointer;
+}
