@@ -347,6 +347,45 @@ ul {
     cursor: pointer;
 }
 
+.modal-header {
+    border-bottom: 1px solid black;
+}
+
+.form-control {
+    border: 1px solid black;
+}
+
+.modal-content {
+    background-color: rgba(240,230,140,1);
+    color: black;
+}
+
+#createSubmit, #exerciseEditSubmit, #foodEditSubmit, #exerciseDelete {
+     background-color: black;
+     color: rgba(240,230,140,1)
+}
+
+#createSubmit:hover, #exerciseEditSubmit:hover, #foodEditSubmit:hover {
+    border: 1px solid green;
+    background-color: green;
+    color: black;
+}
+
+#exerciseDelete:hover {
+    border: 1px solid red;
+    background-color: red;
+    color: black;
+}
+
+.btn-success {
+    border-color: rgba(240,230,140,1);
+}
+
+.btn-success:hover {
+    border-color: rgba(240,230,140,1)
+}
+
+
 @media screen and (max-width: 600px) {
 
     .banner > h1 {
@@ -398,7 +437,7 @@ ul {
     }
 
     .difficulty {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .foodtracker {
