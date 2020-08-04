@@ -14,7 +14,7 @@ const getAll = async () => {
         data.forEach((exercise) => {
         const $dateDiv = $('<div>')
         .attr({'id': exercise._id, 'class': 'dateDiv'})
-        .text(`Day: ${exercise.day}`)
+        .text(`Day  ${exercise.day}`)
         .on('click', () => {
             displayExercise(exercise._id)
         })
@@ -213,7 +213,7 @@ const getAllFood = async () => {
     console.log(data);
     data.forEach((food) => {
         const $dateDivTwo = $('<div>').attr({'id': food._id, 'class': 'dateDivTwo'})
-        .text(`Day: ${food.dayNumber}`)
+        .text(`Day  ${food.dayNumber}`)
         .on('click', () => {
             displayFood(food._id)
         })
@@ -353,4 +353,18 @@ getAllFood()
 
 ///// CSS jQuery //////
 
+// this click event listener will allow the hidden menu to display when the hamburger is clicked and will transform the hamburger icon to an X icon.
+let $hamburger = $('.hamburger');
+    $hamburger.on('click', function(e) {
+    let $hamburgermenu = $('.hamburgermenu');
+    $hamburgermenu.toggleClass('shown');
+    $hamburger.toggleClass('hamburgercrossed')
+      }
+    );  
 
+// this event listener listens to the size of the window, and if it's above 600px, the hidden menu will automatically hide.
+$(window).resize (function(e) {
+  if ($(window).width() < 600) {
+    $('.hamburgermenu').removeClass('shown');
+  }
+});

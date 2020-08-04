@@ -4,7 +4,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
 .banner > h1 {
     margin-top: 140px;
     display: flex;
@@ -42,7 +41,7 @@ ul {
     font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     background-color:rgba(240,230,140,1);
-    position: fixed;
+    border-bottom: 1px solid black;
 }
 
 .icon {
@@ -85,9 +84,30 @@ ul {
     color: rgba(240,230,140,1)
 }
 
-.hidden {
+.hamburgermenu {
     display: none;
+    height: 0px;
+    width: 100%;
+    background-color: black;
+    color: rgba(240,230,140,1);
+    display: none;
+    font-family: 'Montserrat', sans-serif;
 }
+
+.hamburgermenu > a {
+    text-decoration: none;
+}
+
+.hidden {
+    height: 33.3%;
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+    color: rgba(240,230,140,1);
+    border-bottom: 1px solid rgba(240,230,140,1);
+    text-decoration: none;
+}
+
 
 .rightside > a {
     color: black;
@@ -105,7 +125,7 @@ ul {
 
 .breakpoint {
     display: flex;
-    height: 88px;
+    height: 90px;
     background-color:black;
     color: rgb(240,230,140);
     justify-content: center;
@@ -117,7 +137,7 @@ ul {
 }
 
 #exercise_id {
-    background-color: rgb(240,230,140);
+    background-color: black;
 }
 
 
@@ -173,7 +193,6 @@ ul {
     border-radius: 10px;
     color: rgb(240,230,140);
     background-color: black;
-    text-align: center;
 }
 
 
@@ -213,6 +232,7 @@ ul {
     color: white;
     height: 80px;
     font-size: 25px;
+    border-radius: 10px;
 }
 
 .dateDiv:hover, .dateDivTwo:hover {
@@ -226,7 +246,7 @@ ul {
     text-align: center;
     align-self: flex-start;
     justify-content: space-around;
-    height: 500px;
+    height: 100%;
 }
 
 #showOneExercise > div  {
@@ -241,7 +261,7 @@ ul {
     font-size: 30px;
 }
 
-.sets, .reps, .breakfastList, .lunchList, .dinnerList{
+.sets, .reps, .breakfastList, .lunchList, .dinnerList {
     font-size: 30px;
 }
 
@@ -281,9 +301,16 @@ ul {
 
 .foodtracker {
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr 2fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr;
     height: 530px;
+}
+
+.meals {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 100%;
 }
 
 .breakfastHeading, .lunchHeading, .dinnerHeading {
@@ -316,6 +343,183 @@ ul {
 }
 
 .footer > a > img:hover {
-    filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 1));
+    filter: drop-shadow(0px 0px 7px rgba(240,230,140,1));
     cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+
+    .banner > h1 {
+        text-align: center;
+    }
+
+    .createExercise {
+        margin: 30px;
+        height: 60px;
+        width: 90px;
+    }
+
+    .editButton {
+        margin: 30px;
+        height: 60px;
+        width: 90px;
+    }
+
+    .editFoodButton {
+        margin: 30px;
+        height: 60px;
+        width: 70px;
+    }
+
+    .fa-plus {
+        font-size: 36px;
+    }
+    
+    .fa-edit {
+        font-size: 36px;
+    }
+
+    .exercise {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #showOneExercise {
+        width: 100%;
+    }
+
+    .routineHeadings {
+        font-size: 20px;
+    }
+
+    .directionButton {
+        font-size: 15px;
+        width: 80px;
+    }
+
+    .difficulty {
+        font-size: 20px;
+    }
+
+    .foodtracker {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .breakfastContainer,.lunchContainer,.dinnerContainer {
+        height: 100%;
+    }
+
+    .dates {
+        display: flex;
+        height: 25%;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .datesForExercise {
+        display: flex;
+        overflow: scroll;
+        width: 80%;
+        height: 100%;
+    }
+
+    .datesForFood {
+        display: flex;
+        overflow: scroll;
+        width: 80%;
+        height: 100%;
+        margin-left: 20px;
+    }
+
+
+    .dateDiv, .dateDivTwo {
+        margin: 20px;
+        width: 100%;
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    .breakfastHeading, .lunchHeading, .dinnerHeading {
+        font-size: 20px;
+    }
+
+    .sets, .reps, .breakfastList, .lunchList, .dinnerList {
+        font-size: 15px;
+        margin: 10px;
+    }
+
+    .hamburger::before {
+        content: '\2630';
+        font-size: 35px;
+        color: black;
+        display: flex;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        justify-content: center;
+        border-radius: 60px;
+    }
+
+    .hamburger:hover:before {
+        color: rgb(240,230,140);
+        transform: scale(1.25);
+        background-color: black;
+    }
+
+    .hamburgercrossed::before {
+        content: '\2715';
+        font-size: 35px;
+        color: black;
+        position: relative;
+        display: flex;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        justify-content: center;
+    }
+
+    .hamburgerdiv {
+        width: 60px;
+        height: 55px;
+    }
+
+    .hamburgerdiv:hover {
+        background-color: black;
+        border-radius: 20px;
+    }
+
+    .hamburgerdiv > .hamburger:hover {
+        text-decoration: none;
+    }
+
+    .rightsidetop {
+        padding-right: 20px;
+        flex-direction: column;
+        position: relative;
+    }
+
+
+    .shown {
+        display: block;
+        position: relative;
+        height: 200px;
+        font-size: 25px;
+    }
+
+    .rightside {
+        display: none;
+    }
+
+    .icon {
+        margin-left: 5px;
+    }
+
+    .hidden {
+        padding-left: 20px;
+    }
+
+    .hidden:hover {
+        background-color: rgba(240,230,140,1);
+        color: black;
+    }
+
 }

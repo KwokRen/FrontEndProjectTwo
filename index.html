@@ -44,15 +44,14 @@
     <!-- This is the container that the hamburger menu displays. Before the hamburger menu is clicked, it is not displaying. -->
     <div class="hamburgermenu">
         <!-- The class hidden is given to them because they are hidden and will only appear when they are given the class shown (which is on line 1 of the JavaScript file). -->
-        <a href="../aboutPage/about.html"><div class="hidden">About</div></a>
-        <a href="../projectPage/projects.html"><div class="hidden">Projects</div></a>
-        <a href="#contacts"><div class="hidden">Contact</div></a>
+        <a href="#exercise_id"><div class="hidden">Exercise</div></a>
+        <a href="#food_id"><div class="hidden">Food</div></a>
+        <a href="#contact_id"><div class="hidden">Contact</div></a>
     </div>
     <div class="banner">
         <h1 class="hello">We are OnTrack...</h1>
     </div>
-    <div class="breakpoint" id="exercise_id"></div>
-    <div class="breakpoint">Exercise Tracker</div>
+    <div class="breakpoint"  id="exercise_id">Exercise Tracker</div>
     <div class="exercise">
         <div class="dates">
             <button type="button" class="createExercise btn btn-primary" data-toggle="modal" data-target="#create-modal"><i class="fa fa-plus"></i></button>
@@ -61,25 +60,27 @@
         </div>
             <div id="showOneExercise"></div>
     </div>
-    <div class="breakpoint" id="food_id"></div>
-    <div class="breakpoint">Food Tracker</div>
+    <div class="breakpoint"></div>
+    <div class="breakpoint" id="food_id">Food Tracker</div>
     <div class="foodtracker">
         <div class="dates">
             <div class="emptySpace"></div>
             <div class="datesForFood"></div>
             <button class="btn btn-primary editFoodButton" data-toggle="modal" data-target="#exampleModal"><i class='fas fa-edit'></i></button>
         </div>
-        <div class="breakfast">
-            <div class="breakfastHeading">Breakfast</div>
-            <ul class="breakfastContainer"></ul>
-        </div>
-        <div class="lunch">
-            <div class="lunchHeading">Lunch</div>
-            <ul class="lunchContainer"></ul>
-        </div>
-        <div class="dinner">
-            <div class="dinnerHeading">Dinner</div>
-            <ul class="dinnerContainer"></ul>
+        <div class=meals>
+            <div class="breakfast">
+                <div class="breakfastHeading">Breakfast</div>
+                <ul class="breakfastContainer"></ul>
+            </div>
+            <div class="lunch">
+                <div class="lunchHeading">Lunch</div>
+                <ul class="lunchContainer"></ul>
+            </div>
+            <div class="dinner">
+                <div class="dinnerHeading">Dinner</div>
+                <ul class="dinnerContainer"></ul>
+            </div>
         </div>
     </div>
     <div class="footer" id="contact_id">Copyright © 2020 Kwok Ren<a href="https://kwokren.github.io/project-1-portfolio/projectOne/mainPage/" target="_blank"><img src="assets/KR - Logo-06.png"></a></div>
