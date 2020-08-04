@@ -17,7 +17,6 @@ html {
     animation-duration: 10s;
     animation-iteration-count: infinite;
     transition: all 10s ease-in-out;
-    
 }
 
 @keyframes namechange {
