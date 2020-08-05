@@ -27,8 +27,9 @@ For this project, we will be building a fitness tracker website. The website's p
 |Monday August 3rd (Day 4)| Core Application Structure (HTML, CSS, etc.)| Complete
 |Monday August 3rd (Day 4)| Creating CRUD in the `frontend`, finished update and delete | Complete
 |Tuesday August 4th (Day 5)| Media Queries / MVP | Complete
-|Wednesday August 5th (Day 6)| Bug Fixes & Documentation | Incomplete
-|Friday August 7th (Day 7)| Final Touches and Present | Incomplete
+|Wednesday August 5th (Day 6)| Bug Fixes | Complete
+|Thursday August 6th (Day 7)| Documentation | Incomplete
+|Friday August 7th (Day 8)| Final Touches and Present | Incomplete
 
 ## Wireframes
 
