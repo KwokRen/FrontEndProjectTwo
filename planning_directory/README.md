@@ -1,17 +1,10 @@
 # Project Overview
 
-## Project Schedule
+## Project Description
 
-|  Day | Deliverable | Status
-|---|---| ---|
-|Friday July 31st (Day 1)| Project Description / Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
-|Saturday August 1st (Day 2)| Deployed to Heroku and Netlify and connected with MongoDB Atlas / Finished `backend` | Complete
-|Sunday August 2nd (Day 3)| Creating CRUD in the `frontend`, finished showing and editing | Complete
-|Monday August 3rd (Day 4)| Core Application Structure (HTML, CSS, etc.)| Complete
-|Monday August 3rd (Day 4)| Creating CRUD in the `frontend`, finished update and delete | Complete
-|Tuesday August 4th (Day 5)| Media Queries / MVP | Complete
-|Wednesday August 5th (Day 6)| Bug Fixes & Documentation | Incomplete
-|Friday August 7th (Day 7)| Final Touches and Present | Incomplete
+For Project Two of the General Assembly SEI course, we were assigned to create a website that shows our knowledge and understanding of CRUD and RESTful APIs. We have to create the backend using express and MongoDB. We create our frontend using HTML, CSS, and JavaScript. 
+
+For this project, we will be building a fitness tracker website. The website's purpose is to allow users to keep track of their fitness progress by adding different exercise regimens, videos/instructions of how the exercises are conducted and their meals. Users will keep track by filling out a form and it will be stored into a day. This website application is mobile friendly and is easily navigated through the navigation bar at the top. 
 
 ## User Stories
 
@@ -24,11 +17,18 @@
 - While filling out the form for exercises, users can also input what their meal is (up to three items per meal) for the day
 - Users can edit/remove exercises and food they want to update or remove
 
-## Project Description
+## Project Schedule
 
-For Project Two of the General Assembly SEI course, we were assigned to create a website that shows our knowledge and understanding of CRUD and RESTful APIs. We have to create the backend using express and MongoDB. We create our frontend using HTML, CSS, and JavaScript. 
-
-For this project, we will be building a fitness tracker website. The website's purpose is to allow users to keep track of their fitness progress by adding different exercise regimens, videos/instructions of how the exercises are conducted and their meals. Users will keep track by filling out a form and it will be stored into a day. This website application is mobile friendly and is easily navigated through the navigation bar at the top. 
+|  Day | Deliverable | Status
+|---|---| ---|
+|Friday July 31st (Day 1)| Project Description / Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
+|Saturday August 1st (Day 2)| Deployed to Heroku and Netlify and connected with MongoDB Atlas / Finished `backend` | Complete
+|Sunday August 2nd (Day 3)| Creating CRUD in the `frontend`, finished showing and editing | Complete
+|Monday August 3rd (Day 4)| Core Application Structure (HTML, CSS, etc.)| Complete
+|Monday August 3rd (Day 4)| Creating CRUD in the `frontend`, finished update and delete | Complete
+|Tuesday August 4th (Day 5)| Media Queries / MVP | Complete
+|Wednesday August 5th (Day 6)| Bug Fixes & Documentation | Incomplete
+|Friday August 7th (Day 7)| Final Touches and Present | Incomplete
 
 ## Wireframes
 
