@@ -8,7 +8,7 @@
 
 #### Website Link
 
-<a href="https://kwokrengaproject2.netlify.app/" target="_blank"><img src="https://res.cloudinary.com/dpggcudix/image/upload/v1596637877/Screen_Shot_2020-08-05_at_10.31.04_AM_z4ikzo.png" width="200" height= "80" target=_blank></a>
+<a href="https://kwokrengaproject2.netlify.app/" target="_blank"><img src="https://res.cloudinary.com/dpggcudix/image/upload/v1596637877/Screen_Shot_2020-08-05_at_10.31.04_AM_z4ikzo.png" width="200" height= "80"></a>
 
 #### Description
 
