@@ -21,7 +21,6 @@ const getAll = async () => {
         .on('click', editExercise)
         .on('click', () => {
             updated_Exercise = exercise._id
-            console.log(updated_Exercise);
         });
         $('.datesForExercise').append($dateDiv);
     })
@@ -65,7 +64,6 @@ $('#createSubmit').on('click', async (event) => {
         lunch: [$('#lunchOne-create').val(), $('#lunchTwo-create').val(), $('#lunchThree-create').val()],
         dinner: [$('#dinnerOne-create').val(),$('#dinnerTwo-create').val(),$('#dinnerThree-create').val()]
     }]
-    console.log(newFitness)
     const response = await fetch(`${URL}/fitness`, {
         method: "post",
         headers: {
@@ -74,8 +72,6 @@ $('#createSubmit').on('click', async (event) => {
         body: JSON.stringify(newFitness)
     })
     const data = await response.json()
-    console.log(data)
-    console.log(data[0])
     $('.modal').modal('hide');
     $('#showOneExercise').empty()
     $('.breakfastContainer').empty()
@@ -116,7 +112,6 @@ $("#exerciseEditSubmit").on('click', async (event) => {
             }
         ]
     }
-    console.log(updated_Exercise)
     await fetch(`${URL}/fitness/${updated_Exercise}`, {
         method: "put",
         headers: {"Content-Type": "application/json"},
@@ -132,7 +127,6 @@ $("#exerciseEditSubmit").on('click', async (event) => {
 const displayExercise = async (exerciseID) => {
     const response = await fetch(`${URL}/fitness/${exerciseID}`);
     const data = await response.json()
-    console.log(data);
     $('#showOneExercise').empty()
     data.exercises.forEach((exercise) => {
         const $exerciseDiv = $('<div>').attr({'id': exercise._id, 'class': 'exerciseDiv'});
@@ -158,7 +152,6 @@ const displayExercise = async (exerciseID) => {
 const editExercise = async () => {
     const response = await fetch(`${URL}/fitness/${event.target.id}`);
     const data = await response.json()
-    // console.log(data)
     $('#routine-editOne').val('')
     $('#routine-editTwo').val('')
     $('#routine-editThree').val('')
@@ -210,7 +203,6 @@ const editExercise = async () => {
 const getAllFood = async () => {
     const response = await fetch(`${URL}/fitness/food`);
     const data = await response.json()
-    console.log(data);
     data.forEach((food) => {
         const $dateDivTwo = $('<div>').attr({'id': food._id, 'class': 'dateDivTwo'})
         .text(`Day  ${food.dayNumber}`)
@@ -220,7 +212,6 @@ const getAllFood = async () => {
         .on('click', editFood)
         .on('click', () => {
             updated_Food = food._id
-            console.log(updated_Food)
         });
         $('.datesForFood').append($dateDivTwo);
     })  
@@ -251,7 +242,6 @@ $("#foodEditSubmit").on('click', async (event) => {
 const displayFood = async (foodID) => {
     const response = await fetch(`${URL}/fitness/food/${foodID}`);
     const data = await response.json()
-    console.log(data)
     $('.breakfastContainer').empty()
     const $breakfastContainer = $('.breakfastContainer')
     data.breakfast.forEach((breakfast) => {
@@ -325,7 +315,6 @@ const editFood = async () => {
 }
 
 const destroy = async (event) => {
-    console.log(updated_Exercise)
     const response = await fetch(`${URL}/fitness/${updated_Exercise}`, {
       method: "delete"
     })
