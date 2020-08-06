@@ -27,9 +27,7 @@ const getAll = async () => {
         $('.editButton').on('click', (event) => {
         $('#edit-modal').modal();
     });
-}
-
-    
+} 
 
 $('#createSubmit').on('click', async (event) => {
     const newFitness = [{
@@ -83,43 +81,6 @@ $('#createSubmit').on('click', async (event) => {
     getAllFood()
     displayExercise(data[0]._id);
     displayFood(data[0].food[0]._id);
-})
-
-
-$("#exerciseEditSubmit").on('click', async (event) => {
-    const updatedExercise = {
-        exercises: [
-            {
-                routine: $('#routine-editOne').val(),
-                difficulty: $('#difficulty-editOne').val(),
-                sets: $('#sets-editOne').val(),
-                reps: $('#reps-editOne').val(),
-                directionVideo: $('#directions-editOne').val()
-            },
-            {
-                routine: $('#routine-editTwo').val(),
-                difficulty: $('#difficulty-editTwo').val(),
-                sets: $('#sets-editTwo').val(),
-                reps: $('#reps-editTwo').val(),
-                directionVideo: $('#directions-editTwo').val()
-            },
-            {
-                routine: $('#routine-editThree').val(),
-                difficulty: $('#difficulty-editThree').val(),
-                sets: $('#sets-editThree').val(),
-                reps: $('#reps-editThree').val(),
-                directionVideo: $('#directions-editThree').val()
-            }
-        ]
-    }
-    await fetch(`${URL}/fitness/${updated_Exercise}`, {
-        method: "put",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(updatedExercise)
-    })
-    $('.modal').modal('hide');
-    $('#showOneExercise').empty()
-    displayExercise(updated_Exercise);
 })
 
 //////// DISPLAYS ONE DAYS WORTH OF EXERCISES /////////
@@ -199,6 +160,42 @@ const editExercise = async () => {
         $('#directions-editThree').val(directionsIndexThree)
 }
 
+$("#exerciseEditSubmit").on('click', async (event) => {
+    const updatedExercise = {
+        exercises: [
+            {
+                routine: $('#routine-editOne').val(),
+                difficulty: $('#difficulty-editOne').val(),
+                sets: $('#sets-editOne').val(),
+                reps: $('#reps-editOne').val(),
+                directionVideo: $('#directions-editOne').val()
+            },
+            {
+                routine: $('#routine-editTwo').val(),
+                difficulty: $('#difficulty-editTwo').val(),
+                sets: $('#sets-editTwo').val(),
+                reps: $('#reps-editTwo').val(),
+                directionVideo: $('#directions-editTwo').val()
+            },
+            {
+                routine: $('#routine-editThree').val(),
+                difficulty: $('#difficulty-editThree').val(),
+                sets: $('#sets-editThree').val(),
+                reps: $('#reps-editThree').val(),
+                directionVideo: $('#directions-editThree').val()
+            }
+        ]
+    }
+    await fetch(`${URL}/fitness/${updated_Exercise}`, {
+        method: "put",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(updatedExercise)
+    })
+    $('.modal').modal('hide');
+    $('#showOneExercise').empty()
+    displayExercise(updated_Exercise);
+})
+
 // seperated clicking on dates for both of the links
 const getAllFood = async () => {
     const response = await fetch(`${URL}/fitness/food`);
@@ -219,24 +216,6 @@ const getAllFood = async () => {
         $('#editFood-modal').modal();
     })
 }
-
-$("#foodEditSubmit").on('click', async (event) => {
-    const updatedFood = {
-        breakfast: [$('#breakfastOne-edit').val(), $('#breakfastTwo-edit').val(), $('#breakfastThree-edit').val()],
-        lunch: [$('#lunchOne-edit').val(), $('#lunchTwo-edit').val(), $('#lunchThree-edit').val()],
-        dinner: [$('#dinnerOne-edit').val(),$('#dinnerTwo-edit').val(),$('#dinnerThree-edit').val()]
-    }
-    await fetch(`${URL}/fitness/food/${updated_Food}`, {
-                method: "put",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(updatedFood)
-            })
-    $('.modal').modal('hide');
-    $('.breakfastContainer').empty()
-    $('.lunchContainer').empty()
-    $('.dinnerContainer').empty()
-    displayFood(updated_Food)
-})
 
 // displays the food
 const displayFood = async (foodID) => {
@@ -270,6 +249,7 @@ const displayFood = async (foodID) => {
     })
     $('.dinner').append($dinnerContainer);
 }
+
 
 // Places the previous values food onto the modal to edit
 
@@ -314,6 +294,24 @@ const editFood = async () => {
     })
 }
 
+$("#foodEditSubmit").on('click', async (event) => {
+    const updatedFood = {
+        breakfast: [$('#breakfastOne-edit').val(), $('#breakfastTwo-edit').val(), $('#breakfastThree-edit').val()],
+        lunch: [$('#lunchOne-edit').val(), $('#lunchTwo-edit').val(), $('#lunchThree-edit').val()],
+        dinner: [$('#dinnerOne-edit').val(),$('#dinnerTwo-edit').val(),$('#dinnerThree-edit').val()]
+    }
+    await fetch(`${URL}/fitness/food/${updated_Food}`, {
+                method: "put",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(updatedFood)
+            })
+    $('.modal').modal('hide');
+    $('.breakfastContainer').empty()
+    $('.lunchContainer').empty()
+    $('.dinnerContainer').empty()
+    displayFood(updated_Food)
+})
+
 const destroy = async (event) => {
     const response = await fetch(`${URL}/fitness/${updated_Exercise}`, {
       method: "delete"
@@ -344,6 +342,7 @@ getAllFood()
 
 // this click event listener will allow the hidden menu to display when the hamburger is clicked and will transform the hamburger icon to an X icon.
 let $hamburger = $('.hamburger');
+
     $hamburger.on('click', function(e) {
     let $hamburgermenu = $('.hamburgermenu');
     $hamburgermenu.toggleClass('shown');
@@ -355,5 +354,6 @@ let $hamburger = $('.hamburger');
 $(window).resize (function(e) {
   if ($(window).width() < 600) {
     $('.hamburgermenu').removeClass('shown');
+    $hamburger.toggleClass('hamburgercrossed');
   }
 });
