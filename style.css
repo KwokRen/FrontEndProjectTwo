@@ -53,7 +53,6 @@ ul {
 }
 
 .editButton {
-    margin-top: 30px;
     height: 60px;
     /* width: 70px; */
     border: none;
@@ -132,6 +131,7 @@ ul {
     background-color: black;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    align-items: center;
 }
 
 .datesFood {
@@ -142,6 +142,7 @@ ul {
     background-color: black;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    align-items: center;
 }
 
 .datesForExercise {
