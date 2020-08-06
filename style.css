@@ -46,7 +46,7 @@ ul {
 }
 
 .createExercise {
-    height: 120px;
+    height: 100%;
     width: 120px;
     border-radius: 10px;
     color: rgb(240,230,140);
@@ -369,7 +369,7 @@ ul {
 }
 
 .emptySpace {
-    height: 120px;
+    height: 100%;
     width: 120px;
 }
 
@@ -567,6 +567,9 @@ h6.sets, h6.reps {
         width: 100%;
     }
 
+    .emptySpace {
+        height: 10px;
+    }
 
     .dateDiv, .dateDivTwo {
         font-size: 25px;
