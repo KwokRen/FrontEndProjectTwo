@@ -75,7 +75,7 @@ Link To Site  | One Thing I'd Like To Incorporate | Initial Research On That Ite
 | [https://explorance.com/](https://explorance.com/)| The banner was big, and I loved how there was an image on it and it was faded. I took inspiration and did something very similar in putting the image behind the color of the background that was gradient.| CSS allows your background image to have more than one parameter. There is a color section I was more familiar with, but I didn't know that you could add a URL to an image source to put in the background. Make the color section have a opacity less than one and the image will show!|
 ---
 
-## [Read about how I created my backend](https://github.com/KwokRen/BackEndProjectTwo/blob/master/planning_directory/README.md)
+## [Read about how I created my backend](https://github.com/KwokRen/BackEndProjectTwo/blob/master/README.md)
 
 # The Frontend 
 
