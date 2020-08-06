@@ -128,36 +128,21 @@ const editExercise = async () => {
     $('#directions-editOne').val('')
     $('#directions-editTwo').val('')
     $('#directions-editThree').val('')
-    const routineIndexOne = data.exercises[0].routine
-        $('#routine-editOne').val(routineIndexOne)
-    const routineIndexTwo = data.exercises[1].routine
-        $('#routine-editTwo').val(routineIndexTwo)
-    const routineIndexThree = data.exercises[2].routine
-        $('#routine-editThree').val(routineIndexThree)
-    const difficultyIndexOne = data.exercises[0].difficulty
-        $('#difficulty-editOne').val(difficultyIndexOne)
-    const difficultyIndexTwo = data.exercises[1].difficulty
-        $('#difficulty-editTwo').val(difficultyIndexTwo)
-    const difficultyIndexThree = data.exercises[2].difficulty
-        $('#difficulty-editThree').val(difficultyIndexThree)
-    const setsIndexOne = data.exercises[0].sets
-        $('#sets-editOne').val(setsIndexOne)
-    const setsIndexTwo = data.exercises[1].sets
-        $('#sets-editTwo').val(setsIndexTwo)
-    const setsIndexThree = data.exercises[2].sets
-        $('#sets-editThree').val(setsIndexThree)
-    const repsIndexOne = data.exercises[0].reps
-        $('#reps-editOne').val(repsIndexOne)
-    const repsIndexTwo = data.exercises[1].reps
-        $('#reps-editTwo').val(repsIndexTwo)
-    const repsIndexThree = data.exercises[2].reps
-        $('#reps-editThree').val(repsIndexThree)
-    const directionsIndexOne = data.exercises[0].directionVideo
-        $('#directions-editOne').val(directionsIndexOne)
-    const directionsIndexTwo = data.exercises[1].directionVideo
-        $('#directions-editTwo').val(directionsIndexTwo)
-    const directionsIndexThree = data.exercises[2].directionVideo
-        $('#directions-editThree').val(directionsIndexThree)
+    $('#routine-editOne').val(data.exercises[0].routine)
+    $('#routine-editTwo').val(data.exercises[1].routine)
+    $('#routine-editThree').val(data.exercises[2].routine)
+    $('#difficulty-editOne').val(data.exercises[0].difficulty)
+    $('#difficulty-editTwo').val(data.exercises[1].difficulty)
+    $('#difficulty-editThree').val(data.exercises[2].difficulty)
+    $('#sets-editOne').val(data.exercises[0].sets)
+    $('#sets-editTwo').val(data.exercises[1].sets)
+    $('#sets-editThree').val(data.exercises[2].sets)
+    $('#reps-editOne').val(data.exercises[0].reps)
+    $('#reps-editTwo').val(data.exercises[1].reps)
+    $('#reps-editThree').val(data.exercises[2].reps)
+    $('#directions-editOne').val(data.exercises[0].directionVideo)
+    $('#directions-editTwo').val(data.exercises[1].directionVideo)
+    $('#directions-editThree').val(data.exercises[2].directionVideo)
 }
 
 $("#exerciseEditSubmit").on('click', async (event) => {
