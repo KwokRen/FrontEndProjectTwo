@@ -347,13 +347,22 @@ let $hamburger = $('.hamburger');
     let $hamburgermenu = $('.hamburgermenu');
     $hamburgermenu.toggleClass('shown');
     $hamburger.toggleClass('hamburgercrossed')
+    if ($hamburgermenu.hasClass('shown')) {
+        $hamburgermenu.css('display','block');
+    } else {
+        $hamburgermenu.css('display','none');
+        }
       }
     );  
 
+
 // this event listener listens to the size of the window, and if it's above 600px, the hidden menu will automatically hide.
 $(window).resize (function(e) {
-  if ($(window).width() < 600) {
+  if ($(window).width() > 600) {
     $('.hamburgermenu').removeClass('shown');
+    if ($('.hamburger').hasClass('hamburgercrossed')){
     $hamburger.toggleClass('hamburgercrossed');
+    }
+    $('.hamburgermenu').css('display','none');
   }
 });
