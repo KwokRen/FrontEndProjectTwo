@@ -113,21 +113,7 @@ const displayExercise = async (exerciseID) => {
 const editExercise = async () => {
     const response = await fetch(`${URL}/fitness/${event.target.id}`);
     const data = await response.json()
-    $('#routine-editOne').val('')
-    $('#routine-editTwo').val('')
-    $('#routine-editThree').val('')
-    $('#difficulty-editOne').val('')
-    $('#difficulty-editTwo').val('')
-    $('#difficulty-editThree').val('')
-    $('#sets-editOne').val('')
-    $('#sets-editTwo').val('')
-    $('#sets-editThree').val('')
-    $('#reps-editOne').val('')
-    $('#reps-editTwo').val('')
-    $('#reps-editThree').val('')
-    $('#directions-editOne').val('')
-    $('#directions-editTwo').val('')
-    $('#directions-editThree').val('')
+    $('#exercise_edit').trigger('reset');
     $('#routine-editOne').val(data.exercises[0].routine)
     $('#routine-editTwo').val(data.exercises[1].routine)
     $('#routine-editThree').val(data.exercises[2].routine)
@@ -241,15 +227,7 @@ const displayFood = async (foodID) => {
 const editFood = async () => {
     const response = await fetch(`${URL}/fitness/food/${event.target.id}`);
     const data = await response.json()
-        $('#breakfastOne-edit').val('')
-        $('#breakfastTwo-edit').val('')
-        $('#breakfastThree-edit').val('')
-        $('#lunchOne-edit').val('')
-        $('#lunchTwo-edit').val('')
-        $('#lunchThree-edit').val('')
-        $('#dinnerOne-edit').val('')
-        $('#dinnerTwo-edit').val('')
-        $('#dinnerThree-edit').val('')
+        $('#edit_food').trigger('reset')
     data.breakfast.forEach((element, index) => {
         if (index === 0){ 
             $('#breakfastOne-edit').val(element)
