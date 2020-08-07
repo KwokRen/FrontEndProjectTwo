@@ -70,6 +70,7 @@ $('#createSubmit').on('click', async (event) => {
         body: JSON.stringify(newFitness)
     })
     const data = await response.json()
+    // console.log(data);
     $('.modal').modal('hide');
     $('#showOneExercise').empty()
     $('.breakfastContainer').empty()
