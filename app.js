@@ -1,6 +1,6 @@
 // where the heroku website will be
-const deployedURL = 'https://projecttwoga.herokuapp.com'
-// const deployedURL = null
+// const deployedURL = 'https://projecttwoga.herokuapp.com'
+const deployedURL = null
 // developmental purposes will use local host
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 let updated_Exercise = ''
